@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="user-scalable=yes, width=device-width">
+<meta name="description" content="">
+<meta name="credencialChamp" content="">
+
+<title>Credencial Champ</title>
+<link rel="shortcut icon" href="/libreria/images/header_logo.ico" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.2.1/html2canvas.esm.min.js"></script>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script>
+	function printContent(el) {
+		var restorepage = document.body.outerHTML;
+		var printcontent = document.getElementById(el).outerHTML;
+		document.body.outerHTML = printcontent;
+		window.print();
+		document.body.outerHTML = restorepage;
+	}
+</script>
+<script>
+	function printContent(el) {
+		var restorepage = document.body.outerHTML;
+		var printcontent = document.getElementById(el).toDataURL;
+		document.body.outerHTML = printcontent;
+		window.print();
+		document.body.outerHTML = restorepage;
+
+	}
+</script>
+<script>
+	window.history.replaceState({}, '', 'Credencial.html');
+</script>
+
+<style>
+.card2 {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	max-width: 800px;
+	margin: auto;
+	text-align: center;
+	font-family: arial;
+}
+
+#download {
+	margin: 10% 40%;
+}
+
+.download-btn {
+	padding: 10px;
+	font-size: 20px;
+	margin: 0 20px;
+}
+
+#test {
+	background: #3399cc;
+	padding: 50px;
+}
+
+.x2 {
+	transform: scale(2, 2);
+}
+
+.containerdiv {
+	float: left;
+	position: relative;
+}
+
+.cornerimage {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#chistes {
+	position: relative;
+}
+
+.sobre {
+	position: absolute;
+	top: 192px;
+	left: 250px;
+	border: none;
+}
+
+#chistes2 {
+	top: 1000px;
+	left: 1000px;
+}
+
+.sobre2 {
+	position: absolute;
+	top: 192px;
+	left: 176px;
+	border: none;
+}
+
+.texto-encima {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+.centrado {
+	position: absolute;
+	top: 66%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	font-family: fantasy;
+	font-size: 190%;
+}
+</style>
+
+<!-- Custom fonts for this template-->
+<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link href="/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+<body id="page-top">
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<ul
+			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+			id="accordionSidebar">
+
+			<!-- Sidebar - Brand -->
+			<a
+				class="sidebar-brand d-flex align-items-center justify-content-center"
+				th:href="@{/credencialChamps/list}">
+				<div class="sidebar-brand-icon center-n-15">
+					<img
+						src="http://intranet.peruchamps.org/uploads/frontend/header_logo.png"
+						style="height: 150px; width: 150px;">
+				</div>
+			</a>
+
+			<!-- Divider -->
+
+
+
+
+
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-target="#collapseTwo" aria-expanded=true
+				aria-controls="collapseTwo"> </a>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item active"
+							th:href="@{/credencialChamps/list}">Credencial Champ</a>
+					</div>
+
+
+				</div></li>
+
+
+
+			<!-- Divider -->
+
+
+			<!-- Sidebar Toggler (Sidebar) -->
+
+
+		</ul>
+		<!-- End of Sidebar -->
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- Topbar -->
+				<nav
+					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+					<!-- Sidebar Toggle (Topbar) -->
+					<button id="sidebarToggleTop"
+						class="btn btn-link d-md-none rounded-circle mr-3">
+						<i class="fa fa-bars"></i>
+					</button>
+
+					<!-- Topbar Search -->
+
+
+
+
+				</nav>
+				<!-- End of Topbar -->
+				<div class="container">
+					<div class="card">
+						<div class="card-header text-white bg-dark mb-3">Detalle de
+							Credencial Champ</div>
+						<div class="card-body">
+
+							<div class="table-responsive">
+								<table class="table table-white">
+
+									<tbody>
+										<tr>
+											<td>DNI</td>
+											<td th:text="${credencialChamp.dniChamp}"></td>
+										</tr>
+										<tr>
+											<td>Nombre</td>
+											<td th:text="${credencialChamp.namecredencialChamp}"></td>
+										</tr>
+										<tr>
+											<td>Foto</td>
+											<td><div id="FOTOCHAMP" class="card2">
+													<div id="chistes">
+														<img th:if="${#strings.length(credencialChamp.foto)> 0}"
+															class="sobre"
+															style="width: 300px; height: 300px; border-radius: 999px"
+															th:src="@{'/credencialChamps/uploads/' + ${credencialChamp.foto}}"
+															th:alt="${credencialChamp.foto}" src="" alt="" /> <img
+															src="https://images.email-platform.com/fundacionvsl/Credencial%20voluntarixs_Mesa%20de%20trabajo%201%20copia%203.jpg"
+															style="width: 648px; height: 850px" />
+														<div class="centrado"
+															th:text="${credencialChamp.namecredencialChamp}"></div>
+													</div>
+												</div></td>
+
+
+											<!-- style="max-width: 50%;maxd" -->
+										</tr>
+
+
+
+									</tbody>
+								</table>
+
+
+
+
+								<a onclick="printContent('FOTOCHAMP')" type="button"
+									class="btn btn-danger k" style="color: white"><span
+									class="glyphicon glyphicon-circle-arrow-left"></span>Imprimir
+									Credencial</a> <a th:href="@{/credencialChamps/new}" type="button"
+									class="btn btn-danger k"> <span
+									class="glyphicon glyphicon-circle-arrow-left"></span> Volver
+								</a>
+
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.container-fluid -->
+
+
+
+
+			<!-- End of Main Content -->
+
+			<!-- Footer -->
+			<footer class="sticky-footer bg-white">
+				<div class="container my-auto">
+					<div class="copyright text-center my-auto"></div>
+				</div>
+			</footer>
+			<!-- End of Footer -->
+		</div>
+	</div>
+	<!-- End of Content Wrapper -->
+
+
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">¿Listo para
+						salir?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Seleccione "Cerrar sesión" a
+					continuación si está listo para finalizar su sesión actual.</div>
+				<div class="modal-footer">
+					<form id="logoutForm" th:action="@{/logout}" method="post">
+						<button class="btn btn-danger"
+							onclick="document.getElementById('logoutForm').submit();"
+							type="submit">Cerrar</button>
+						<button class="btn btn-dark" type="button" data-dismiss="modal"
+							th:href="@{/books/list}">Cancel</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+	<!-- Core plugin JavaScript-->
+	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="/js/sb-admin-2.min.js"></script>
+	<script src="/js/html2canvas.min.js"></script>
+</body>
+
+</html>
+
